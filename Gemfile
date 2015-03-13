@@ -65,7 +65,6 @@ gem 'json', platform: 'jruby'
 
 group :development, :test do
   gem 'airbrake', :require => false
-  gem 'pry-rails'
   gem 'pry-byebug', platforms: [:mri]
   gem 'quiet_assets'
   gem 'rubocop', require: false
@@ -115,3 +114,20 @@ gem 'underscore-rails'
 
 ENV['USER_GEMFILE'] ||= './UserGemfile'
 eval_gemfile ENV['USER_GEMFILE'] if File.exist?(ENV['USER_GEMFILE'])
+#
+# gems needed by GB flavor
+#
+
+gem 'headquarters', github: 'subvisual/headquarters-ruby'
+gem 'omniauth-headquarters', github: 'subvisual/omniauth-headquarters'
+gem 'pry-rails'
+gem 'newrelic_rpm'
+
+group :production do
+  gem 'foreman'
+end
+
+group :deploy do
+  gem 'capistrano-rvm'
+  gem 'capistrano-foreman', github: 'subvisual/capistrano-foreman', branch: :master
+end

@@ -252,6 +252,12 @@ Devise.setup do |config|
       github_options
   end
 
+  if Errbit::Config.hq_authentication
+    config.omniauth :headquarters,
+      Errbit::Config.hq_app_id,
+      Errbit::Config.hq_app_secret
+  end
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

@@ -9,7 +9,7 @@ class User
   field :github_login
   field :github_oauth_token
   field :name
-  field :admin, :type => Boolean, :default => false
+  field :admin, :type => Boolean, :default => true
   field :per_page, :type => Fixnum, :default => PER_PAGE
   field :time_zone, :default => "UTC"
 
@@ -55,7 +55,8 @@ class User
   end
 
   def password_required?
-    github_login.present? ? false : super
+    # HQ authentication prevents the need for a password
+    false # github_login.present? ? false : super
   end
 
   def github_account?
