@@ -110,3 +110,23 @@ gem 'uglifier'
 gem 'jquery-rails', '~> 2.1.4'
 gem 'pjax_rails'
 gem 'underscore-rails'
+
+ENV['USER_GEMFILE'] ||= './UserGemfile'
+eval_gemfile ENV['USER_GEMFILE'] if File.exist?(ENV['USER_GEMFILE'])
+#
+# gems needed by GB flavor
+#
+
+gem 'headquarters', '~> 0.4.0'
+gem 'omniauth-headquarters', github: 'subvisual/omniauth-headquarters'
+gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'newrelic_rpm'
+
+group :production do
+  gem 'foreman'
+end
+
+group :deploy do
+  gem 'capistrano-rvm'
+  gem 'capistrano-foreman', github: 'subvisual/capistrano-foreman', branch: :master
+end
