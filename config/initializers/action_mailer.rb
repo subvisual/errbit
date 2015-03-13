@@ -1,3 +1,10 @@
+if Errbit::Config.email_delivery_method == :headquarters
+  Headquarters::RailsDeliveryMethod.credentials = {
+    client_id: Errbit::Config.hq_app_id,
+    client_secret: Errbit::Config.hq_app_secret
+  }
+end
+
 # Set SMTP settings if given.
 if Errbit::Config.email_delivery_method == :smtp
   ActionMailer::Base.delivery_method = :smtp

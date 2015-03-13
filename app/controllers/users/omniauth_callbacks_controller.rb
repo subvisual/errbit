@@ -65,10 +65,35 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  def headquarters
+    email = request.env['omniauth.auth'].info.email
+    hq_user = headquarters_user(email)
+
+    if hq_user && hq_user.persisted?
+      flash[:success] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Headquarters'
+      sign_in_and_redirect hq_user, event: :authentication
+    else
+      flash[:error] = "There are no authorized users with Headquarters login '#{email}'. Please ask an administrator to register your user account."
+      redirect_to new_user_session_path
+    end
+  end
+
   private def update_user_with_github_attributes(user, login, token)
     user.update_attributes(
       github_login:       login,
       github_oauth_token: token
     )
+  end
+
+  def headquarters_user(email)
+    data = Headquarters::Client::Members.new(
+      client_id: ENV['HQ_APP_ID'],
+      client_secret: ENV['HQ_APP_SECRET']
+    ).search(email).first
+    return if data.nil?
+
+    User.where(email: data['email']).first_or_create do |user|
+      user.name = data['name']
+    end
   end
 end

@@ -19,6 +19,7 @@ gem 'font-awesome-rails'
 gem 'haml'
 gem 'htmlentities'
 gem 'kaminari', '>= 0.16.3'
+gem 'mongo', '2.1.2'
 gem 'mongoid', '5.0.2'
 gem 'mongoid_rails_migrations'
 gem 'rack-ssl', require: 'rack/ssl' # force SSL
@@ -113,3 +114,20 @@ gem 'underscore-rails'
 
 ENV['USER_GEMFILE'] ||= './UserGemfile'
 eval_gemfile ENV['USER_GEMFILE'] if File.exist?(ENV['USER_GEMFILE'])
+#
+# gems needed by GB flavor
+#
+
+gem 'headquarters', '~> 0.4.0'
+gem 'omniauth-headquarters', github: 'subvisual/omniauth-headquarters'
+gem 'newrelic_rpm'
+gem 'rack-cors', require: 'rack/cors'
+
+group :production do
+  gem 'foreman'
+end
+
+group :deploy do
+  gem 'capistrano-rvm'
+  gem 'capistrano-foreman', github: 'subvisual/capistrano-foreman', branch: :master
+end

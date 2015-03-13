@@ -1,11 +1,10 @@
 - content_for :title, 'Sign in'
 - auth_key = Devise.authentication_keys.first
 
-- if Errbit::Config.github_authentication
+- if Errbit::Config.hq_authentication
   - content_for :action_bar do
     %div.action-bar
-      %span.github= link_to "Sign in with #{Errbit::Config.github_site_title}", user_omniauth_authorize_path(:github)
-      %span.google= link_to "Sign in with #{Errbit::Config.google_site_title}", user_omniauth_authorize_path(:google_oauth2)
+      %span.headquarters= link_to 'Sign in with HQ', user_omniauth_authorize_path(:headquarters)
 
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   .required

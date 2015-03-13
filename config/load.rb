@@ -64,5 +64,9 @@ Errbit::Config = Configurator.run(
   sendmail_location:         ['SENDMAIL_LOCATION'],
   sendmail_arguments:        ['SENDMAIL_ARGUMENTS'],
 
-  devise_modules:            ['DEVISE_MODULES']
+  devise_modules:            ['DEVISE_MODULES'],
+
+  hq_authentication: ['HQ_AUTHENTICATION'],
+  hq_app_id: ['HQ_APP_ID'],
+  hq_app_secret: ['HQ_APP_SECRET'],
 )
