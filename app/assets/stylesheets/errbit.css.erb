@@ -13,7 +13,43 @@
 
 .tab-bar li { display: inline-block; }
 
-.float-right  { float: right; }
+/* Action Bar */
+#action-bar {
+  position: absolute;
+  text-align: right;
+  top: 22px; right: 24px;
+}
+#action-bar span {
+  display: inline-block;
+  margin-left: 18px;
+  margin-bottom: 16px;
+  text-decoration: none;
+  color: #666;
+  background: #FFF url(<%= asset_path "images/button-bg.png" %>) 0 bottom repeat-x;
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border: 1px solid #bbb;
+}
+#action-bar span a {
+  color: #666;
+  padding: 0 20px;
+  font-size: 14px; font-weight: bold; line-height: 39px; text-decoration: none;
+  text-shadow: 1px 1px 0px #FFF; -webkit-text-shadow: 1px 1px 0px #FFF;
+  background: transparent 10px 8px no-repeat;
+}
+#action-bar a:hover { text-decoration: none;}
+#action-bar span:hover {
+  box-shadow: 0 0 3px #69c;
+  -moz-box-shadow: 0 0 3px #69c;
+  -webkit-box-shadow: 0 0 3px #69c;
+}
+#action-bar a i {
+  margin-right: 5px;
+}
+
+#action-bar span.github a:before { font-family: FontAwesome; content: "\f09b"; margin-right: 8px; position: relative; top: 4px; font-size: 26px; }
+#action-bar span.headquarters a { background: url(<%= asset_path "images/icons/subvisual.png" %>) no-repeat 2px 0px; background-size: contain; }
 
 /* Content */
 #content {

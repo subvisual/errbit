@@ -5,4 +5,7 @@ require 'capistrano/rbenv' if ENV['rbenv']
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 
+require 'capistrano/rvm'
+require 'capistrano/foreman'
+
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
