@@ -5,6 +5,7 @@ class User
 
   devise *Errbit::Config.devise_modules
 
+  field :hq_id
   field :email
   field :github_login
   field :github_oauth_token

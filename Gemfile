@@ -116,7 +116,7 @@ eval_gemfile ENV['USER_GEMFILE'] if File.exist?(ENV['USER_GEMFILE'])
 # gems needed by GB flavor
 #
 
-gem 'headquarters', github: 'subvisual/headquarters-ruby'
+gem 'headquarters', '~> 0.4.0'
 gem 'omniauth-headquarters', github: 'subvisual/omniauth-headquarters'
 gem 'pry-rails'
 gem 'newrelic_rpm'

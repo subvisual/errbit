@@ -22,13 +22,6 @@ GIT
       capistrano-bundler (~> 1.1)
 
 GIT
-  remote: git://github.com/subvisual/headquarters-ruby.git
-  revision: f51d7abdbe7b1b56cc3f09be54ea4aa53d796b50
-  specs:
-    headquarters (0.3.1)
-      httparty (>= 0.13.3)
-
-GIT
   remote: git://github.com/subvisual/omniauth-headquarters.git
   revision: 4a737fd46f4990bf2d4627fb6159fb5b75e4e22d
   specs:
@@ -180,6 +173,8 @@ GEM
     haml (4.0.7)
       tilt
     hashie (3.4.2)
+    headquarters (0.4.0)
+      httparty (>= 0.13.3)
     hipchat (1.5.2)
       httparty
       mimemagic
@@ -455,7 +450,7 @@ DEPENDENCIES
   flowdock
   foreman
   haml
-  headquarters!
+  headquarters (~> 0.4.0)
   hipchat
   hoi
   hoptoad_notifier (~> 2.4)
